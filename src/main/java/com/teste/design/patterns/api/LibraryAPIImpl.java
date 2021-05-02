@@ -1,6 +1,7 @@
 package com.teste.design.patterns.api;
 
-import com.teste.design.patterns.model.Book;
+import com.teste.design.patterns.model.request.BookRequest;
+import com.teste.design.patterns.model.response.BookResponse;
 import com.teste.design.patterns.service.BookService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.XSlf4j;
@@ -22,20 +23,22 @@ public class LibraryAPIImpl implements LibraryAPI {
     @Override
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Book bookEntity) {
+    public ResponseEntity<BookResponse> create(@RequestBody BookRequest bookRequest) {
         log.info("Received a new create request...");
 
-        bookService.create(bookEntity);
+        ResponseEntity<BookResponse> response = bookService.create(bookRequest);
 
         log.info("Finished processing create request!");
+
+        return response;
     }
 
     @Override
     @GetMapping("/get")
-    public ResponseEntity<Book> get(@RequestParam Long id) {
+    public ResponseEntity<BookResponse> get(@RequestParam Long id) {
         log.info("Received a new create request...");
 
-        ResponseEntity<Book> response = bookService.get(id);
+        ResponseEntity<BookResponse> response = bookService.get(id);
 
         log.info("Finished processing create request!");
 

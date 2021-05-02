@@ -1,10 +1,12 @@
 package com.teste.design.patterns.api;
 
-import com.teste.design.patterns.model.Book;
+import com.teste.design.patterns.model.request.BookRequest;
+import com.teste.design.patterns.model.response.BookResponse;
 import org.springframework.http.ResponseEntity;
 
+@SuppressWarnings("unused")
 public interface LibraryAPI {
-    void create(Book bookEntity);
+    ResponseEntity<BookResponse> create(BookRequest bookEntity);
 
-    ResponseEntity<Book> get(Long id);
+    ResponseEntity<BookResponse> get(Long id);
 }

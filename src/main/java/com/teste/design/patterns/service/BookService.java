@@ -1,10 +1,11 @@
 package com.teste.design.patterns.service;
 
-import com.teste.design.patterns.model.Book;
+import com.teste.design.patterns.model.request.BookRequest;
+import com.teste.design.patterns.model.response.BookResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface BookService {
-    void create(Book request);
+    ResponseEntity<BookResponse> create(BookRequest request);
 
-    ResponseEntity<Book> get(Long id);
+    ResponseEntity<BookResponse> get(Long id);
 }
