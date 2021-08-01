@@ -4,7 +4,6 @@ import com.teste.design.patterns.model.request.BookRequest;
 import com.teste.design.patterns.model.response.BookResponse;
 import com.teste.design.patterns.service.BookService;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/book")
 @Slf4j
-public class LibraryAPIImpl implements LibraryAPI {
+public class BookAPIImpl implements BookAPI {
 
     private final BookService bookService;
 
-    public LibraryAPIImpl(BookService bookService) {
+    public BookAPIImpl(BookService bookService) {
         this.bookService = bookService;
     }
 
@@ -34,13 +33,13 @@ public class LibraryAPIImpl implements LibraryAPI {
     }
 
     @Override
-    @GetMapping("/get")
-    public ResponseEntity<BookResponse> get(@RequestParam Long id) {
+    @GetMapping("/get/{id}")
+    public ResponseEntity<BookResponse> get(@PathVariable Long id) {
         log.info("Received a new create request...");
 
         ResponseEntity<BookResponse> response = bookService.get(id);
 
-        log.info("Finished processing create request!");
+        log.info("Finished get request!");
 
         return response;
     }

@@ -5,7 +5,7 @@ import com.teste.design.patterns.model.response.BookResponse;
 import org.springframework.http.ResponseEntity;
 
 @SuppressWarnings("unused")
-public interface LibraryAPI {
+public interface BookAPI {
     ResponseEntity<BookResponse> create(BookRequest bookEntity);
 
     ResponseEntity<BookResponse> get(Long id);
