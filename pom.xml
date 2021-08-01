@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.teste</groupId>
-	<artifactId>design-patterns</artifactId>
+	<artifactId>spring-sql-db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>design-patterns</name>
+	<name>spring-sql-db</name>
 	<description>testando</description>
 	<properties>
 		<java.version>11</java.version>
