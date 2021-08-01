@@ -38,4 +38,15 @@ public class BookEntity {
     @LastModifiedDate
     @Column(name = "LAST_UPDATE_DATE")
     private LocalDateTime lastUpdateDate;
+
+    @Override
+    public String toString() {
+        return "BookEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", createDate=" + createDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                '}';
+    }
 }
